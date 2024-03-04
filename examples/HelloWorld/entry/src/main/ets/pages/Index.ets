@@ -1,3 +1,4 @@
+import router from '@ohos.router'
 @Entry
 @Component
 struct Index {
@@ -22,6 +23,17 @@ struct Index {
         .backgroundColor('#0D9FFB')
         .width('40%')
         .height('5%')
+        .onClick(() => {
+          console.log(`Succeeded in clicking the 'Next' button.`)
+          // 页面跳转
+          router.pushUrl({url:'pages/Second'})
+            .then(()=>{
+              console.log('Succeeded in jumping to the second page.')
+            })
+            .catch((err) => {
+              console.log(`Failed to jump to the second page.Code is ${err.code}, message is ${err.message}`)
+            })
+        })
       }
       .width('100%')
     }
